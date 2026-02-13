@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 import os
 from dotenv import load_dotenv
-from schemas.interviews import InterviewCreate
-from services.interviews_service import list_interviews, create_interview
+from backend.schemas.interviews import InterviewCreate
+from backend.services.interviews_service import list_interviews, create_interview
 
 load_dotenv()
 SHEET_ID = os.getenv("INTERVIEWS_SHEET_ID")

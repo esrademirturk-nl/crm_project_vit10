@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from schemas.users import UserCreate, UserPublic, LoginRequest
-from services.users_service import list_users, create_user, login
+from backend.schemas.users import UserCreate, UserPublic, LoginRequest
+from backend.services.users_service import list_users, create_user, login
 import os
 from dotenv import load_dotenv
 

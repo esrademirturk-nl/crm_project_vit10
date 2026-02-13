@@ -1,4 +1,4 @@
-from repositories.mentors_repo import list_mentor_raw, add_mentor
+from backend.repositories.mentors_repo import list_mentor_raw, add_mentor
 
 def list_mentors(sheet_id: str):
     values = list_mentor_raw(sheet_id)

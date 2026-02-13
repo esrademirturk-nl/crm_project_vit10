@@ -7,12 +7,6 @@ SCOPES = [
   "https://www.googleapis.com/auth/spreadsheets",
   "https://www.googleapis.com/auth/drive.metadata.readonly"
 ]
-
-
-
-
-
-
 def auth():
   """Shows basic usage of the Drive v3 API.
   Prints the names and ids of the first 10 files the user has access to.

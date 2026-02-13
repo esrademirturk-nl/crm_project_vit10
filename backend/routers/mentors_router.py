@@ -2,8 +2,8 @@ from fastapi import APIRouter
 import os
 from dotenv import load_dotenv
 
-from schemas.mentors import MentorCreate
-from services.mentors_service import list_mentors, create_mentor
+from backend.schemas.mentors import MentorCreate
+from backend.services.mentors_service import list_mentors, create_mentor
 
 load_dotenv()
 SHEET_ID = os.getenv("MENTOR_SHEET_ID")

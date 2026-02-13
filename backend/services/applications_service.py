@@ -1,8 +1,9 @@
-from repositories.applications_repo import list_applications_raw, add_application
+from backend.repositories.applications_repo import list_applications_raw, add_application
 
-def list_applications(sheet_id: str):
-    values = list_applications_raw(sheet_id)
-    if not values or len(values) == 1:
+def list_applications(sheet_id: str, tab_key: str = "all"):
+    values = list_applications_raw(sheet_id, tab_key)
+
+    if not values or len(values) <= 1:
         return []
 
     header = values[0]
@@ -10,7 +11,8 @@ def list_applications(sheet_id: str):
 
     result = []
     for r in rows:
-        result.append(dict(zip(header, r)))
+        row_full = r + [""] * (len(header) - len(r))
+        result.append(dict(zip(header, row_full)))
     return result
 
 def create_application(sheet_id: str, data):

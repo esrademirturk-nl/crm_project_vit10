@@ -1,4 +1,4 @@
-from sheets_db import read_rows, append_row
+from backend.sheets_db import read_rows, append_row
 
 MENTOR_RANGE = "'Sayfa1'!A1:H"
 

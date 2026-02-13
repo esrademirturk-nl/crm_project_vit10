@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from repositories.users_repo import list_users_raw, add_user
+from backend.repositories.users_repo import list_users_raw, add_user
 
 def list_users(sheet_id: str):
     values = list_users_raw(sheet_id)

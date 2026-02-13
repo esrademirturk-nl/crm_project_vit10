@@ -1,9 +1,14 @@
 from googleapiclient.discovery import build
-from auth import auth
+from backend.auth import auth
+
+_service = None  # cache
 
 def sheets_service():
-    creds = auth()
-    return build("sheets", "v4", credentials=creds)
+    global _service
+    if _service is None:
+        creds = auth()  # auth() token.json kullanmalı (ilk sefer hariç)
+        _service = build("sheets", "v4", credentials=creds, cache_discovery=False)
+    return _service
 
 def read_rows(spreadsheet_id: str, range_a1: str):
     svc = sheets_service()

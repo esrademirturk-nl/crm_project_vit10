@@ -1,4 +1,4 @@
-from repositories.interviews_repo import list_interview_raw, add_interview
+from backend.repositories.interviews_repo import list_interview_raw, add_interview
 
 def list_interviews(sheet_id: str):
     values = list_interview_raw(sheet_id)

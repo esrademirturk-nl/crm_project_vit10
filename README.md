@@ -44,6 +44,35 @@ This structure ensures:
 - Clean data flow between UI and backend  
 
 ---
+crm_project_vit10/
+├─ backend/
+├─ ui/
+   └─ genrated/
+│     ├─ login_ui.py
+│     ├─ applications_ui.py
+│     ├─ interviews_ui.py
+│     ├─ mentors_ui.py
+│     ├─ admin_ui.py
+   └─ screens/
+│     ├─ login_window.py
+│     ├─ applications_window.py
+│     ├─ interviews_window.py
+│     ├─ mentors_window.py
+│     ├─ admin_window.py
+├─ docs/
+│  └─ screens/
+│     ├─ login.png
+│     ├─ applications.png
+│     └─ ...
+├─ .gitignore
+├─ .env.example
+├─ requirements.txt
+├─ login.png
+├─ run.py
+├─ README.md
+└─ LICENSE
+
+---
 
 ## 🔑 Authentication & Authorization
 

@@ -44,34 +44,90 @@ This structure ensures:
 - Clean data flow between UI and backend  
 
 ---
+## 🏗️ Architecture Project Structure – CRM System
+
+Organized CRM project structure following layered architecture principles. Backend includes routers, repositories, schemas, and services, while UI is separated into generated and screen layers.
+
+```
 crm_project_vit10/
 ├─ backend/
+│  ├─ __init__.py
+│  ├─ main.py
+│  ├─ auth.py
+│  ├─ sheets_db.py
+│  ├─ repositories/
+│  │  ├─ __init__.py
+│  │  ├─ login_repo.py
+│  │  ├─ applications_repo.py
+│  │  ├─ interviews_repo.py
+│  │  ├─ mentors_repo.py
+│  │  ├─ admin_repo.py
+│  │  ├─ mail_repo.py
+│  │  └─ calendar_repo.py
+│  ├─ routers/
+│  │  ├─ __init__.py
+│  │  ├─ login_router.py
+│  │  ├─ applications_router.py
+│  │  ├─ interviews_router.py
+│  │  ├─ mentors_router.py
+│  │  ├─ mail_router.py
+│  │  ├─ calendar_router.py
+│  │  └─ admin_router.py
+│  ├─ schemas/
+│  │  ├─ __init__.py
+│  │  ├─ login.py
+│  │  ├─ application.py
+│  │  ├─ interview.py
+│  │  ├─ admin.py
+│  │  ├─ mail.py
+│  │  ├─ calendar.py
+│  │  └─ mentor.py
+│  └─ services/
+│     ├─ __init__.py
+│     ├─ login_service.py
+│     ├─ admin_service.py
+│     ├─ applications_service.py
+│     ├─ mentor_service.py
+│     ├─ interview_service.py
+│     ├─ mail_service.py
+│     └─ calendar_service.py
+│
 ├─ ui/
-   └─ genrated/
-│     ├─ login_ui.py
-│     ├─ applications_ui.py
-│     ├─ interviews_ui.py
-│     ├─ mentors_ui.py
-│     ├─ admin_ui.py
-   └─ screens/
+│  ├─ __init__.py
+│  ├─ main.py
+│  ├─ generated/
+│  │  ├─ __init__.py
+│  │  ├─ login_ui.py
+│  │  ├─ applications_ui.py
+│  │  ├─ interviews_ui.py
+│  │  ├─ mentors_ui.py
+│  │  └─ admin_ui.py
+│  └─ screens/
+│     ├─ __init__.py
 │     ├─ login_window.py
 │     ├─ applications_window.py
 │     ├─ interviews_window.py
 │     ├─ mentors_window.py
-│     ├─ admin_window.py
+│     └─ admin_window.py
+│
+├─ assets/
+│  └─ images/
+│     └─ logo.png
+│
 ├─ docs/
 │  └─ screens/
 │     ├─ login.png
 │     ├─ applications.png
 │     └─ ...
+│
 ├─ .gitignore
 ├─ .env.example
 ├─ requirements.txt
-├─ login.png
 ├─ run.py
 ├─ README.md
 └─ LICENSE
 
+```
 ---
 
 ## 🔑 Authentication & Authorization

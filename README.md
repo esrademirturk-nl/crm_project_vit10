@@ -16,6 +16,8 @@ This CRM system replaces manual spreadsheet workflows with a structured applicat
 - 📅 Interview management
 - ⚙️ Preferences & admin controls
 - ☁️ Google Sheets API integration
+- 📆 Google Calendar API integration
+- 📧 Google Gmail API integration (email authentication & notifications)
 
 ---
 
@@ -98,6 +100,7 @@ This structure ensures:
 - Pydantic
 - Google Sheets API
 - Google Drive API
+- Google Gmail API
 - gspread
 - python-dotenv
 

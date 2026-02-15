@@ -1,40 +1,42 @@
-import os
-from google.auth.transport.requests import Request
+# backend/auth.py
+from __future__ import annotations
+
+from pathlib import Path
+
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
 
+# Proje: Sheets + Calendar + Gmail
 SCOPES = [
-  "https://www.googleapis.com/auth/spreadsheets",
-  "https://www.googleapis.com/auth/drive.metadata.readonly"
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/calendar.readonly",
+    "https://www.googleapis.com/auth/gmail.send",
 ]
-def auth():
-  """Shows basic usage of the Drive v3 API.
-  Prints the names and ids of the first 10 files the user has access to.
-  """
-  creds = None
-  # The file token.json stores the user's access and refresh tokens, and is
-  # created automatically when the authorization flow completes for the first
-  # time.
-  BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-  CRED_PATH = os.path.join(BASE_DIR, "credentials.json")
-  TOKEN_PATH = os.path.join(BASE_DIR, "token.json")
 
-# ...
-
-  if os.path.exists("token.json"):
-    creds = Credentials.from_authorized_user_file("token.json", SCOPES)
-  # If there are no (valid) credentials available, let the user log in.
-  if not creds or not creds.valid:
-    if creds and creds.expired and creds.refresh_token:
-      creds.refresh(Request())
-    else:
-      flow = InstalledAppFlow.from_client_secrets_file(CRED_PATH, SCOPES)
-      creds = flow.run_local_server(port=0)
-    # Save the credentials for the next run
-    with open(TOKEN_PATH, "w") as token:
-      token.write(creds.to_json())
-  return creds
+BASE_DIR = Path(__file__).resolve().parent              # .../backend
+TOKEN_PATH = BASE_DIR / "token.json"                   # .../backend/token.json
+CREDS_PATH = BASE_DIR / "credentials.json"             # .../backend/credentials.json
 
 
+def auth() -> Credentials:
+    creds: Credentials | None = None
 
+    # 1) token varsa yükle
+    if TOKEN_PATH.exists():
+        creds = Credentials.from_authorized_user_file(str(TOKEN_PATH), SCOPES)
 
+    # 2) token yoksa / geçersizse düzelt
+    if not creds or not creds.valid:
+        # Süresi dolduysa sessiz refresh (login açmaz)
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            # İlk defa veya refresh token yoksa: 1 kez login açar
+            flow = InstalledAppFlow.from_client_secrets_file(str(CREDS_PATH), SCOPES)
+            creds = flow.run_local_server(port=0)
+
+        # 3) token'ı kaydet
+        TOKEN_PATH.write_text(creds.to_json(), encoding="utf-8")
+
+    return creds

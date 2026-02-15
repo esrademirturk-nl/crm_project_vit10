@@ -27,3 +27,13 @@ def append_row(spreadsheet_id: str, range_a1: str, row_values: list):
         insertDataOption="INSERT_ROWS",
         body={"values": [row_values]}
     ).execute()
+    
+def update_cell(spreadsheet_id: str, a1_range: str, value: str):
+    svc = sheets_service()
+    svc.spreadsheets().values().update(
+        spreadsheetId=spreadsheet_id,
+        range=a1_range,
+        valueInputOption="USER_ENTERED",
+        body={"values": [[value]]},
+    ).execute()
+

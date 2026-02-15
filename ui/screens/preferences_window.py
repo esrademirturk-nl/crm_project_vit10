@@ -1,5 +1,6 @@
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets,QtGui
 from ui.generated.preferences_ui import Ui_preferences
+from ui.screens.helpers import resource_path
 
 
 class PreferencesWindow(QtWidgets.QMainWindow):
@@ -8,6 +9,8 @@ class PreferencesWindow(QtWidgets.QMainWindow):
 
         self.ui = Ui_preferences()
         self.ui.setupUi(self)
+        self.ui.label.setPixmap(QtGui.QPixmap(resource_path("logo.png")))
+   
 
         self._keep_design_but_center()
         self._connect_buttons()
@@ -43,19 +46,27 @@ class PreferencesWindow(QtWidgets.QMainWindow):
         self.ui.btn_exit.clicked.connect(self.close)
 
         self.ui.btn_applications.clicked.connect(self.open_applications)
-
-        # Aşağıdakiler varsa aç:
-        # self.ui.btn_interviews.clicked.connect(self.open_interviews)
-        # self.ui.btn_mentor_meeting.clicked.connect(self.open_mentor_meetings)
-        # self.ui.btn_main_menu.clicked.connect(self.open_main_menu)
+        self.ui.btn_interviews.clicked.connect(self.open_interviews)
+        self.ui.btn_mentor_meeting.clicked.connect(self.open_mentor)
 
     # -----------------------------
     # Sayfa geçişleri
     # -----------------------------
-    def open_applications(self):
-        # Import'u burada yapıyoruz ki circular import olmasın
-        from ui.screens.applications_window import ApplicationsWindow
 
+    def open_interviews(self):
+        from ui.screens.interview_menu_window import InterviewMenuWindow
+        self.next = InterviewMenuWindow()
+        self.next.show()
+        self.close()
+
+    def open_mentor(self):
+        from ui.screens.mentor_menu_window import MentorMenuWindow
+        self.next = MentorMenuWindow()
+        self.next.show()
+        self.close()
+
+    def open_applications(self):
+        from ui.screens.applications_window import ApplicationsWindow
         self.app_win = ApplicationsWindow()
         self.app_win.show()
         self.close()  # istersen self.hide()

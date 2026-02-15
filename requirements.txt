@@ -1,8 +1,10 @@
 fastapi
-uvicorn[standard]
-sqlalchemy
+uvicorn
 pydantic
 python-dotenv
+gspread
 google-api-python-client
 google-auth
 google-auth-oauthlib
+google-auth-httplib2
+PyQt5

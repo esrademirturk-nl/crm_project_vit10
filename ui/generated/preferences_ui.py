@@ -111,28 +111,6 @@ class Ui_preferences(object):
 "}")
         self.btn_interviews.setObjectName("btn_interviews")
         self.verticalLayout.addWidget(self.btn_interviews)
-        self.btn_main_menu = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.btn_main_menu.setStyleSheet("QPushButton {\n"
-"    background-color: #D96B6B;\n"
-"    color: white;\n"
-"    border-radius: 8px;\n"
-"    padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #E07C7C;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #B85A5A;\n"
-"}\n"
-"\n"
-"QPushButton:checked {\n"
-"    background-color: #A94444;\n"
-"    font-weight: bold;\n"
-"}")
-        self.btn_main_menu.setObjectName("btn_main_menu")
-        self.verticalLayout.addWidget(self.btn_main_menu)
         self.btn_exit = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.btn_exit.setStyleSheet("QPushButton {\n"
 "    background-color: #D96B6B;\n"
@@ -176,7 +154,6 @@ class Ui_preferences(object):
         self.btn_mentor_meeting.setText(_translate("preferences", "MENTOR MEETINGS"))
         self.btn_applications.setText(_translate("preferences", "APPLICATIONS"))
         self.btn_interviews.setText(_translate("preferences", "INTERVIEWS"))
-        self.btn_main_menu.setText(_translate("preferences", "MAIN MENU"))
         self.btn_exit.setText(_translate("preferences", "EXIT"))
 
 

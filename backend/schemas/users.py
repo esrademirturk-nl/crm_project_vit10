@@ -12,3 +12,7 @@ class UserPublic(BaseModel):
 class LoginRequest(BaseModel):
     kullanici: str
     parola: str
+    
+class ResetPasswordRequest(BaseModel):
+    username: str
+    email: str

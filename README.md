@@ -83,7 +83,7 @@ This structure ensures:
 
 | Login | Interview |
 |-------|-------------------|
-| <img src="docs/screens/login.png" width="400"/> | <img src="docs/interview.png" width="400"/> |
+| <img src="docs/screens/login.png" width="400"/> | <img src="docs/screens/interview.png" width="400"/> |
 
 | Mentor | Applications |
 |-------------|-------------|

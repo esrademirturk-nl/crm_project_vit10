@@ -81,13 +81,13 @@ This structure ensures:
 
 ## 🖼️ Screenshots
 
-| Login | Admin Preferences |
+| Login | Interview |
 |-------|-------------------|
-| <img src="docs/screenshots/login.png" width="400"/> | <img src="docs/screenshots/admin_preferences.png" width="400"/> |
+| <img src="docs/screens/login.png" width="400"/> | <img src="docs/interview.png" width="400"/> |
 
-| Mentor Menu | Applications |
+| Mentor | Applications |
 |-------------|-------------|
-| <img src="docs/screenshots/mentor_menu.png" width="400"/> | <img src="docs/screenshots/applications.png" width="400"/> |
+| <img src="docs/screens/mentor.png" width="400"/> | <img src="docs/screens/application.png" width="400"/> |
 
 ---
 

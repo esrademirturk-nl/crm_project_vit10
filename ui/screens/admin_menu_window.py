@@ -12,7 +12,7 @@ class AdminMenuWindow(QtWidgets.QMainWindow):
         self.ui = Ui_AdminMenuWindow()
         self.ui.setupUi(self)
         self._fix_table_layout()
-        self.ui.labelsetPixmap(QtGui.QPixmap(resource_path("logo.png")))
+        self.ui.label.setPixmap(QtGui.QPixmap(resource_path("logo.png")))
 
 
         self._setup_table()

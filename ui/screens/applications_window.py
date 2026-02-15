@@ -26,7 +26,6 @@ class ApplicationsFilterProxy(QtCore.QSortFilterProxyModel):
 
         self.setFilterCaseSensitivity(QtCore.Qt.CaseInsensitive)
         self.setSortCaseSensitivity(QtCore.Qt.CaseInsensitive)
-        self.ui.label.setPixmap(QtGui.QPixmap(resource_path("logo.png")))
 
     def set_header_map(self, col_map: dict[str, int]):
         self.header_to_col = dict(col_map)
@@ -91,6 +90,7 @@ class ApplicationsWindow(QtWidgets.QMainWindow):
         # UI
         self.ui = Ui_ApplicationWindow()
         self.ui.setupUi(self)
+        self.ui.label.setPixmap(QtGui.QPixmap(resource_path("logo.png")))
   
 
         # Source model
